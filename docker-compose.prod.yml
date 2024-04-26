@@ -40,6 +40,8 @@ services:
     build:
       context: ./orders-ms
       dockerfile: dockerfile.prod
+      args:
+        - ORDERS_DATABASE_URL=${ORDERS_DATABASE_URL}
     image: orders-ms-prod
     environment:
       - PORT=3002
