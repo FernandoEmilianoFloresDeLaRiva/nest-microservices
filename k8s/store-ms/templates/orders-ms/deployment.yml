@@ -3,27 +3,32 @@ kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    app: client-gateway
-  name: client-gateway
+    app: orders-ms
+  name: orders-ms
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: client-gateway
+      app: orders-ms
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: client-gateway
+        app: orders-ms
     spec:
       containers:
-      - image: fernandoflores07081/client-gateway-prod
-        name: client-gateway-prod
+      - image: fernandoflores07081/orders-ms-prod
+        name: orders-ms-prod
         env:
         - name: PORT
-          value: "3000"
+          value: "3002"
         - name: NATS_SERVERS
           value: "nats://nats"
+        - name: DATABASE_URL
+          valueFrom:
+            secretKeyRef:
+              name: orders-secrets
+              key: ORDERS_DATABASE_URL
         resources: {}
 status: {}

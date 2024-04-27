@@ -3,27 +3,29 @@ kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    app: client-gateway
-  name: client-gateway
+    app: product-ms
+  name: product-ms
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: client-gateway
+      app: product-ms
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: client-gateway
+        app: product-ms
     spec:
       containers:
-      - image: fernandoflores07081/client-gateway-prod
-        name: client-gateway-prod
+      - image: fernandoflores07081/products-ms-prod
+        name: products-ms-prod
         env:
         - name: PORT
-          value: "3000"
+          value: "3001"
         - name: NATS_SERVERS
           value: "nats://nats"
+        - name: DATABASE_URL
+          value: "file:./dev.deb"
         resources: {}
 status: {}
