@@ -13,3 +13,6 @@
 [submodule "auth-ms"]
 	path = auth-ms
 	url = https://github.com/Nest-Microservices-Product/auth-ms.git
+[submodule "shopping-cart-service"]
+	path = shopping-cart-service
+	url = .\\shopping-cart-service\\
