@@ -16,3 +16,6 @@
 [submodule "shopping-cart-service"]
 	path = shopping-cart-service
 	url = https://github.com/Nest-Microservices-Product/shopping-cart-service.git
+[submodule "user-ms"]
+	path = user-ms
+	url = https://github.com/Nest-Microservices-Product/user-ms.git
