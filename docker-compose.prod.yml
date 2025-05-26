@@ -62,3 +62,22 @@ services:
       - STRIPE_SUCCESS_URL=${STRIPE_SUCCESS_URL}
       - STRIPE_CANCEL_URL=${STRIPE_CANCEL_URL}
       - NATS_SERVERS=nats://nats-server:4222
+    
+  shopping-cart-ms:
+    build:
+      context: ./shopping-cart-service
+      dockerfile: dockerfile.prod
+    image: fernandoflores07081/shopping-cart-ms-prod
+    environment:
+      - PORT=3005
+      - NATS_SERVERS=nats://nats-server:4222
+
+  user-ms:
+    build:
+      context: ./user-ms
+      dockerfile: dockerfile.prod
+    image: fernandoflores07081/user-ms-prod
+    environment:
+      - PORT=3006
+      - NATS_SERVERS=nats://nats-server:4222
+      - DATABASE_URL=${DATABASE_USER_URL}
