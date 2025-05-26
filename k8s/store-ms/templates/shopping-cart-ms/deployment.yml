@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: shopping-cart-ms
+  name: shopping-cart-ms
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: shopping-cart-ms
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: shopping-cart-ms
+    spec:
+      containers:
+      - image: fernandoflores07081/shopping-cart-ms-prod
+        name: shopping-cart-ms-prod
+        env:
+        - name: PORT
+          value: "3005"
+        - name: NATS_SERVERS
+          value: "nats://nats"
+        resources: {}
+status: {}
